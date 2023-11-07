@@ -1,0 +1,81 @@
+{% extends "users/base.html"%}
+
+{% block content %}
+{%for shortlisted_profile in shortlisted_profiles %}
+<div class="content-section" class="temp"><a href="{%url 'profile' shortlisted_profile.no %}">
+    <div class="media">
+       <img class="rounded-circle account-img" src="{{ shortlisted_profile.image.url}}"> 
+      <div class="media-body">
+            
+        
+        <h2 class="account-heading">{{shortlisted_profile.firstname}} {{shortlisted_profile.lastname}}</h2>
+        
+        <p class="text-secondary">from {{shortlisted_profile.city}},{{shortlisted_profile.state}} </p>
+        <p class="text-secondary">{{shortlisted_profile.occupation}}</p>
+        <p class="text-secondary">caste:{{shortlisted_profile.caste}}  <span> religion:{{shortlisted_profile.religion}}</span></p>
+      </div>
+    </div>
+    <div></a>
+      <hr>
+      
+      <form method="post" action="{%url 'unbookmark' shortlisted_profile.no%}">
+        {% csrf_token %}
+        <!-- Your form fields here -->
+    
+        <input type="hidden" name="button_action" value="bookmark">
+        <button type="submit" class="btn btn-outline-info" name="bookmark">UnBookMark!</button>
+    
+        
+    </form>
+</div>
+    {%endfor%} 
+    <!-- FORM HERE -->
+
+
+
+  {% endblock %}
+
+
+  {% comment %} {% extends "users/base.html"%}
+
+{% block content %}
+{%for shortlisted_profile in shortlisted_profiles %}
+<div class="content-section" class="temp"><a href="{%url 'profile' shortlisted_profile.no %}">
+    <div class="media">
+       <img class="rounded-circle account-img" src="{{ shortlisted_profile.image.url}}"> 
+      <div class="media-body">
+            
+        
+        <h2 class="account-heading">{{shortlisted_profile.firstname}} {{shortlisted_profile.lastname}}</h2>
+        
+        <p class="text-secondary">from {{shortlisted_profile.city}},{{shortlisted_profile.state}} </p>
+        <p class="text-secondary">{{shortlisted_profile.occupation}}</p>
+        <p class="text-secondary">caste:{{shortlisted_profile.caste}}  <span> religion:{{shortlisted_profile.religion}}</span></p>
+      </div>
+    </div>
+    <div></a>
+      <hr>
+      
+      <form method="post" action="{%url 'unbookmark' shortlisted_profile.no%}">
+        {% csrf_token %}
+        <!-- Your form fields here -->
+    
+        <input type="hidden" name="button_action" value="bookmark">
+        <button type="submit" class="btn btn-outline-info" name="bookmark">UnBookMark!</button>
+    
+        
+    </form>
+</div>
+    {%endfor%} 
+    <!-- FORM HERE -->
+
+
+
+  {% endblock %}
+ {% endcomment %}
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+{%extends 'users/base.html' %}
+
+{%block content%}
+<div class='content-section'>
+    <form method="POST"  >
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">profile Info</legend>
+          {{ form2.as_p }}
+      </fieldset>
+      <div class="form-group">
+          <button type="submit" class="btn btn-outline-info"> update </button>
+      </div></form>    
+          <hr>
+          <div><button type="button" class="btn btn-outline-info"><a href="{%url 'updateform1'%}">  &nbsp;edit personal details</a></button></span>
+          <span><button type="button" class="btn btn-outline-info"><a href="{%url 'updateform3'%}">  &nbsp;edit family details</a></button></span>
+          <span><button type="button" class="btn btn-outline-info"><a href="{%url 'updatepreferences'%}">  &nbsp;edit preference details</a></button></span>
+
+  </div>
+  {%endblock%}

@@ -1,0 +1,358 @@
+{% extends 'users/base.html' %} 
+
+{%block content %}
+{%if user.is_authenticated%}
+{%for prefered_personal_detail in prefered_personal_details %}
+<div class="container-fluid content-section profile-item btn"  >
+  <a href="{% url 'profile' prefered_personal_detail.user.id %}">
+      <div class="media" >
+        {% if gender != prefered_personal_detail.gender %}
+          <img class="rounded-circle account-img ml-n3 mr-4" src="{{ prefered_personal_detail.image_pic.url }}">
+          <div class="media-body">
+              <div class="row">
+                  <div class="col-2">
+                      
+                    
+                          <h2 class="account-heading">
+                              {{ prefered_personal_detail.firstname }} {{ prefered_personal_detail.lastname }}
+                          </h2>
+
+                          <p class="text-secondary" class="col-6">
+                              from {{ prefered_personal_detail.city }},{{ prefered_personal_detail.state }}
+                          </p>
+
+                          <p class="text-secondary">
+                              {{ prefered_personal_detail.profile_educational_and_career_info.occupation }}
+                          </p>
+
+                          <p class="text-secondary">
+                              Caste: {{ prefered_personal_detail.profile_family_details.caste }}
+                          </p>
+                  </div>
+                  <div class="col-8 text-right">
+                    <small>
+                      
+                          {% if gender == 'M' %}
+                              ---hey😃! She seems to be deserving based on her
+                              <i> personal details</i>
+                          {% else %}
+                              ---hey😃! He seems to be deserving based on his
+                              <i> personal details</i>
+                          {% endif %}
+                      </small>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </a>
+</div>
+
+                    {%endif%}
+      
+    
+
+    <!-- FORM HERE -->
+</a>
+{%endfor%}
+
+{%for prefered_career_detail in prefered_career_details %}
+
+<div class="container-fluid content-section profile-item btn"  >
+  <a href="{%url 'profile' prefered_career_detail.profile_id.user.id %}">
+    <div class="media">
+      {% if gender != prefered_career_detail.profile_id.gender %}
+
+       <img class="rounded-circle account-img" src="{{ prefered_career_detail.profile_id.image_pic.url}}"> 
+      <div class="media-body">
+        <div class="row">
+            <div class="col-2"> 
+              
+              <h2 class="account-heading">
+                {{prefered_career_detail.profile_id.firstname}} {{prefered_career_detail.profile_id.lastname}}
+            </h2>
+
+            <p class="text-secondary" class="col-6">
+                from {{prefered_career_detail.profile_id.city}},{{prefered_career_detail.profile_id.state}}
+            </p>
+
+            <p class="text-secondary">
+                {{prefered_career_detail.occupation}}
+            </p>
+
+            <p class="text-secondary">
+                Caste: {{ prefered_personal_detail.profile_family_details.caste }}
+            </p>
+          </div>
+          <div class="col-8 text-right">
+            <small>
+                  {% if gender == 'M' %}
+                      ---hey😃! She seems to be deserving based on her
+                      <i> personal details</i>
+                  {% else %}
+                      ---hey😃! He seems to be deserving based on his
+                      <i> personal details</i>
+                  {% endif %}
+              </small>
+          </div>
+
+        
+        
+         
+        {% comment %} <h2 class="account-heading">{{prefered_career_detail.profile_id.firstname}} {{prefered_career_detail.profile_id.lastname}}</h2>
+        
+        <p class="text-secondary">from {{prefered_career_detail.profile_id.city}},{{prefered_career_detail.profile_id.state}} </p>
+        <p class="text-secondary">{{prefered_career_detail.occupation}}</p>
+        <p class="text-secondary">caste:{{prefered_career_detail.profile_id.caste}}</p> {% endcomment %}
+      </div>
+      
+      
+    </div>
+    <!-- FORM HERE -->
+</div>{%endif%}</a>
+{%endfor%}
+{%for prefered_family_detail in prefered_family_details %}
+{%if gender != prefered_family_detail.profile_id.gender %}
+<div class="container-fluid content-section profile-item btn" class="profile-item"><a href="{%url 'profile' prefered_family_detail.profile_id.user.id %}">
+    <div class="media">
+      
+
+      {%if prefered_personal_detail not in prefered_career_details and  prefered_personal_details %}
+       <img class="rounded-circle account-img" src="{{ prefered_family_detail.profile_id.image_pic.url}}"> 
+      <div class="media-body">
+        <div class="row">
+          <div class="col-2"> 
+        <small>
+           {%if gender == 'M'%}
+          ---hey😃!she seems to be deserving based on her<i> family details</i>
+          {% else %}
+          ---hey😃!he seems to be deserving based on his<i> family details</i>
+          {%endif%}</small>
+        
+          
+        <h2 class="account-heading">{{prefered_family_detail.profile_id.firstname}} {{prefered_family_detail.profile_id.lastname}}</h2>
+        
+        <p class="text-secondary">from {{prefered_family_detail.profile_id.city}},{{prefered_family_detail.profile_id.state}} </p>
+        <p class="text-secondary">{{prefered_family_detail.profile_id.user.profile_personal_info.profile_educational_and_career_info.occupation}}</p>
+        <p class="text-secondary">caste:{{prefered_family_detail.caste}}</p>
+      </div>
+      {%endif%}
+      
+      
+    </div>
+  </div>
+</div>
+
+    <!-- FORM HERE -->
+</div></a>
+{%endif%}
+{% endfor %}
+{% comment %} {%for prefered_career_detail in with_p_income %}
+
+{% if gender != prefered_career_detail.profile_id.gender %}
+<div class="container-fluid content-section profile-item btn"><a href="{%url 'profile' prefered_career_detail.profile_id.user.id %}">
+    <div class="media">
+       <img class="rounded-circle account-img" src="{{ prefered_career_detail.profile_id.image_pic.url}}"> 
+      <div class="media-body">
+        <div class="row">
+          <div class="col-2">   
+        <small> {%if gender == 'M'%}
+          ---hey!she is earning a similar income that your waiting for 
+          {% else %}
+          ---hey!he is earning a similar income that your waiting for
+          {%endif%}</small>
+        
+          
+        <h2 class="account-heading">{{prefered_career_detail.profile_id.firstname}} {{prefered_career_detail.profile_id.lastname}}</h2>
+        
+        <p class="text-secondary">from {{prefered_career_detail.profile_id.city}},{{prefered_career_detail.profile_id.state}} </p>
+        <p class="text-secondary">{{prefered_career_detail.occupation}}</p>
+        <p class="text-secondary">caste:{{prefered_career_detail.profile_id.caste}}</p>
+      </div>
+      
+      
+    </div>
+    </div>
+    
+  </div>
+    <!-- FORM HERE -->
+</div>{%endif%}</a>
+{% endfor %}
+{%for prefered_personal_detail in with_p_height %}
+
+{%if gender != prefered_personal_detail.gender %}
+<div class="container-fluid content-section profile-item btn"><a href="{%url 'profile' prefered_personal_detail.user.id %}">
+    <div class="media">
+      {% comment %} {%if prefered_personal_detail not in with_p_income and  prefered_family_details and  prefered_career_details and  prefered_personal_details%} {% endcomment %}
+      {% comment %} <img class="rounded-circle account-img" src="{{ prefered_personal_detail.image_pic.url}}"> 
+      <div class="media-body">
+        <div class="row">
+          <div class="col-2">  
+        <small> {%if gender == 'M'%}
+          ---hey look!she has a similar height that you prefered 
+          {% else %}
+          ---hey look!he has a similar a height that you prefered
+          {%endif%}</small>
+        
+          
+        <h2 class="account-heading">{{prefered_personal_detail.firstname}} {{prefered_personal_detail.lastname}}</h2>
+        
+        <p class="text-secondary">from {{prefered_personal_detail.city}},{{prefered_personal_detail.state}} </p>
+        <p class="text-secondary">{{prefered_personal_detail.profile_educational_and_career_info.occupation}}</p>
+        <p class="text-secondary">caste:{{prefered_personal_detail.profile_family_details.caste}}</p>
+      </div>
+      
+    </div>
+     
+    </div>
+    
+  </div>
+    <!-- FORM HERE -->
+</div>{%endif%}</a> {% endcomment %}
+
+{% comment %} {% endfor %} {% endcomment %} 
+
+
+
+
+
+
+
+
+
+
+
+
+{% endif %}
+
+{%endblock%} 
+ 
+
+{% comment %} {% block content %}
+
+  <div class="container">
+    <div class="row">
+      {% for prefered_detail in prefered_personal_details %}
+        {% if gender != prefered_detail.gender %}
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img src="{{ prefered_detail.image_pic.url }}" class="card-img-top rounded-circle" alt="Profile Picture">
+              <div class="card-body">
+                <small class="text-muted">
+                  {% if gender == 'M' %}She{% else %}He{% endif %} seems to be deserving based on {% if gender == 'M' %}her{% else %}his{% endif %} <i>personal details</i>
+                </small>
+                <h5 class="card-title">{{ prefered_detail.firstname }} {{ prefered_detail.lastname }}</h5>
+                <p class="card-text">From {{ prefered_detail.city }}, {{ prefered_detail.state }}</p>
+                <p class="card-text">{{ prefered_detail.profile_educational_and_career_info.occupation }}</p>
+                <p class="card-text">Caste: {{ prefered_detail.profile_family_details.caste }}</p>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Repeat the same structure for other sections -->
+</div>
+
+
+
+
+  {% for prefered_detail in prefered_career_details %}
+    {% if gender != prefered_detail.gender %}
+      <div class="content-section">
+        <div class="media">
+          <img class="rounded-circle account-img" src="{{ prefered_detail.profile_id.image_pic.url }}">
+          <div class="media-body">
+            <small>
+              {% if gender == 'M' %}
+                Hey 😃! She seems to be deserving based on her <i>career details</i>
+              {% else %}
+                Hey 😃! He seems to be deserving based on his <i>career details</i>
+              {% endif %}
+            </small>
+            <h2 class="account-heading">{{ prefered_detail.profile_id.firstname }} {{ prefered_detail.profile_id.lastname }}</h2>
+            <p class="text-secondary">from {{ prefered_detail.profile_id.city }}, {{ prefered_detail.profile_id.state }}</p>
+            <p class="text-secondary">{{ prefered_detail.occupation }}</p>
+            <p class="text-secondary">Caste: {{ prefered_detail.profile_id.caste }}</p>
+          </div>
+        </div>
+        <!-- FORM HERE -->
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  {% for prefered_detail in prefered_family_details %}
+    {% if gender != prefered_detail.gender %}
+      <div class="content-section">
+        <div class="media">
+          <img class="rounded-circle account-img" src="{{ prefered_detail.profile_id.image_pic.url }}">
+          <div class="media-body">
+            <small>
+              {% if gender == 'M' %}
+                Hey 😃! She seems to be deserving based on her <i>family details</i>
+              {% else %}
+                Hey 😃! He seems to be deserving based on his <i>family details</i>
+              {% endif %}
+            </small>
+            <h2 class="account-heading">{{ prefered_detail.profile_id.firstname }} {{ prefered_detail.profile_id.lastname }}</h2>
+            <p class="text-secondary">from {{ prefered_detail.profile_id.city }}, {{ prefered_detail.profile_id.state }}</p>
+            <p class="text-secondary">{{ prefered_detail.profile_id.user.profile_personal_info.profile_educational_and_career_info.occupation }}</p>
+            <p class="text-secondary">Caste: {{ prefered_detail.caste }}</p>
+          </div>
+        </div>
+        <!-- FORM HERE -->
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  {% for prefered_detail in with_p_income %}
+    {% if gender != prefered_detail.gender %}
+      <div class="content-section">
+        <div class="media">
+          <img class="rounded-circle account-img" src="{{ prefered_detail.profile_id.image_pic.url }}">
+          <div class="media-body">
+            <small>
+              {% if gender == 'M' %}
+                Hey 😃! She seems to be deserving based on her <i>career details</i>
+              {% else %}
+                Hey 😃! He seems to be deserving based on his <i>career details</i>
+              {% endif %}
+            </small>
+            <h2 class="account-heading">{{ prefered_detail.profile_id.firstname }} {{ prefered_detail.profile_id.lastname }}</h2>
+            <p class="text-secondary">from {{ prefered_detail.profile_id.city }}, {{ prefered_detail.profile_id.state }}</p>
+            <p class="text-secondary">{{ prefered_detail.occupation }}</p>
+            <p class="text-secondary">Caste: {{ prefered_detail.profile_id.caste }}</p>
+          </div>
+        </div>
+        <!-- FORM HERE -->
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  {% for prefered_detail in with_p_height %}
+    {% if gender != prefered_detail.gender %}
+      <div class="content-section">
+        <div class="media">
+          <img class="rounded-circle account-img" src="{{ prefered_detail.image_pic.url }}">
+          <div class="media-body">
+            <small>
+              {% if gender == 'M' %}
+                Hey 😃! She has a similar height that you preferred
+              {% else %}
+                Hey 😃! He has a similar height that you preferred
+              {% endif %}
+            </small>
+            <h2 class="account-heading">{{ prefered_detail.firstname }} {{ prefered_detail.lastname }}</h2>
+            <p class="text-secondary">from {{ prefered_detail.city }}, {{ prefered_detail.state }}</p>
+            <p class="text-secondary">{{ prefered_detail.profile_educational_and_career_info.occupation }}</p>
+            <p class="text-secondary">Caste: {{ prefered_detail.profile_family_details.caste }}</p>
+          </div>
+        </div>
+        <!-- FORM HERE -->
+      </div>
+    {% endif %}
+
+
+  {% endfor %}
+{% endblock %} {% endcomment %}

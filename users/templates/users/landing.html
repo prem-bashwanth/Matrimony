@@ -1,0 +1,44 @@
+{% extends "users/base.html" %}
+
+{%load static%}
+
+
+
+{% block content1 %}
+{% comment %} <div>
+<img src="{% static 'love.jpg' %}" class="home_banner" alt="Landing Photo">
+<div class="image-text">Your Text</div>
+</div> {% endcomment %}
+
+ <div class="home_banner ">
+    <style>
+        button{
+            border : 10px;
+            background-color :black;
+            color:white;
+            height: 100px;
+            width : 300px;
+            border-radius : 30px;
+            cursor: pointer;
+            font-size: 45px;
+            margin-left: 550px;
+            margin-top: 3px;
+        }
+    </style>
+    <button class="about-us">
+        <a href = "/about"> ABOUT-US </a>
+        </button>
+    <br><br><br><br>
+    <h1 class="indented-paragraph" style="font-family: NEW TIMES ROMAN;font-weight:Bold;font-style:Italic;font-size:80px; color: #008000;">UNVEIL WEDDINGS</h1>
+<p  >
+    <h2 class="indented-paragraph1"style="font-family: NEW TIMES ROMAN;font-weight:Bold;font-style:Italic;color: #FF0000;">-"Place to find your love by heavens judjement"</h2>
+</p>
+<p class="space">
+      <h3 style="color: #00008B;font-size:45px;font-family: Showcard Gothic;"class="space">  <br><br>  We brought this app for you to cherish the cherry blossoms in you life with a best partner </h3>
+</p>      
+</div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,179 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+{% comment %} <div class="container ggg">
+    <div class="row  mt-5" >
+        <div class="col-lg-12">
+            <div class="ggg"> {% endcomment %}
+                {% comment %} <div class="card-body"> {% endcomment %}
+                  {% comment %} <div class="profile-block my-block">
+                  <div class="profile-picture-container1"> {% endcomment %}
+                    <img src="{{ otheruser.profile_personal_info.image_pic.url }}" alt="Profile Picture" class="profile-picture2">
+                  {% comment %} </div> {% endcomment %}
+                
+                    {% comment %} <div class="text-center ">
+                        <img src="{{ user.profile_personal_info.image_pic.url }}"alt="{{ user.username }}'s Profile Picture" class="img-fluid rounded-circle profile-picture"> 
+                    </div> {% endcomment %}
+                        {% comment %} <div > {% endcomment %}
+                          <!-- Profile information goes here -->
+                          
+                        <h3 class="mt-5" style="margin-left: 20px;">{{ otheruser.username }}</h3>
+                        <p style="margin-left: 20px;">{{ otheruser.email }}</p>
+                        
+                        <hr>
+                        {% comment %} <div style="display: block;" > {% endcomment %}
+                            {% comment %} <div class="basicDetails_basicDetailsContainerTitle__3qb0g"></div> {% endcomment %}
+                            {% comment %} <div class="FieldStyle">
+                              <div class="field"> {% endcomment %}
+                                {% comment %} <div class="ageField " style="box-sizing: border-box;" > {% endcomment %}
+                                  {% comment %} <div class="MuiButtonBase-root MuiListItem-root ListItem_root__2_4XU MuiListItem-gutters ListItem_gutters__2RbEP MuiListItem-button" tabindex="0" role="button" aria-disabled="false"> {% endcomment %}
+                                    
+                                    <h2>Personal Details</h2>
+                        <h3 style="margin-left: 20px;">{{ personal_info1.firstname }} {{ personal_info1.lastname }}</h3>
+                        <p style="margin-left: 20px;">Age : {{ personal_info1.age }}<br>from :{{ personal_info1.city }} ,{{ personal_info1.state }}<br>
+                          {% if  personal_info1.gender == 'M' %}
+                              Gender: Male<br>
+                          {% else %} 
+                              Gender: Female<br>
+                          {% endif %}
+                        Height :{{ personal_info1.height }} cm<br>Deit: {{ personal_info1.diet }}<br>weight: {{ personal_info1.weigth }}<br>
+                         blood group: {{ personal_info1.blood_group }}<br>physical disability : {{ personal_info1.physical_disability }}<br>
+                         skin colour: {{ personal_info1.skin_colour }}<br>marital status: {{ personal_info1.marital_status }}<br>
+                         created_at : {{ personal_info1.created_at }}<br><hr>
+                         <h2 >career details</h2>
+                         <h3 style="margin-left: 20px;">qualification :{{ career_details.qualification }} ,at :{{ career_details.collage_name }}<br></h3>
+                         <p style="margin-left: 20px;">current occupation : {{ career_details.occupation }}<br>company name :{{ career_details.company_name }} , with a salary of {{ career_details.income }} LPA<br>
+                           <hr><h2>family details</h2>
+                           <p>father occupation :{{ family_details.fathers_occupation }} ,mothers occupation :{{ family_details.mothers_occupation }}<br></p>
+                         <p style="margin-left: 20px;">religion : {{ family_details.religion }}<br>caste :{{ family_details.caste }} <br> mothertounge : {{ family_details.mothertounge }} <br>
+                          <hr>
+                          <h2>patner preferences</h2>
+                          <p style="margin-left: 20px;">Age Range{{ prefernces_details.agemin }} to {{ prefernces_details.agemax }}<br>
+                          partner qualification : {{ prefernces_details.qualificaton }}<br>partner occupation :{{ prefernces_details.occupation }} <br>
+                            
+                          Height :{{ prefernces_details.height }} cm<br>religion: {{ prefernces_details.religion }}<br>caste: {{ prefernces_details.caste }}<br>
+                          
+                           marital status: {{ prefernces_details.marital_status }}<br>
+                           <hr>
+                            
+                           <hr>
+                           {% if z.to_user.id == otheruser.id %}
+                           <h2> <br>contact details:{{ personal_info1.phone_number }}</h2>
+                           {% elif z.from_user.id == otheruser.id %}
+                           <h2><br>contact details:{{ personal_info1.phone_number }}</h2>
+                           {% endif %}
+                      
+
+ 
+                      
+                                 
+                                
+                                    
+                                    
+                        
+                      
+                      </div></div></div>
+                        
+                        
+
+                        <!-- Add more user details here -->
+                    </div>
+                    
+                
+            
+        {% comment %} </div>
+    </div>
+</div> {% endcomment %}
+
+
+
+
+
+{% comment %} {% extends "users/base.html"%}
+
+{% block content %}
+
+<div class="content-section" class="temp">
+    <div class="media">
+       <img class="rounded-circle account-img" src="{{ otheruser.profile_personal_info.image_pic.url}}"> 
+      <div class="media-body">
+            
+        
+        <h2 class="account-heading">{{otheruser.profile_personal_info.firstname}} {{otheruser.profile_personal_info.lastname}}</h2>
+        
+        <p class="text-secondary">from {{otheruser.profile_personal_info.city}},{{otheruser.profile_personal_info.state}} </p>
+        <p class="text-secondary">{{otheruser.profile_personal_info.profile_educational_and_career_info.occupation}}</p>
+        <p class="text-secondary">caste:{{otheruser.profile_personal_info.profile_family_details.caste}}</p>
+      </div>
+    </div>{% endcomment %}
+
+
+    {% comment %} <div style="display: inline-block;" class="full-screen-block" >
+        <div class="basicDetails_basicDetailsContainer__1z2Dn " >
+          <div class="basicDetails_basicDetailsContainerTitle__3qb0g"></div>
+          <div class="FieldStyle">
+            <div class="field">
+              <div class="ageField " style="box-sizing: border-box;" >
+                <div class="MuiButtonBase-root MuiListItem-root ListItem_root__2_4XU MuiListItem-gutters ListItem_gutters__2RbEP MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
+                  <div class="MuiListItemText-root ListItemText_root__3UXm7 MuiListItemText-multiline">
+                  <span class="MuiTypography-root MuiListItemText-primary ListItemText_primary__1Jr44 MuiTypography-body1 MuiTypography-displayBlock">Age Range</span>
+                  <p class="MuiTypography-root Typography_root__3w5N2 MuiTypography-body1 MuiTypography-noWrap Typography_noWrap__VRMGW">{{ personal_info1.age }}</p>
+                </div>
+              </div>
+                  <h5> <span><hr></span></h5>
+                  {% if otheruser.id == user.id %}
+                  <button type="button" class="btn btn-outline-info"><a href="{%url 'updateform1'%}"> update your personal profile</a></button>
+                  <span><button type="button" class="btn btn-outline-info"><a href="{%url 'updateform2'%}"> update your eduactional details</a></button>
+                  <span><button type="button" class="btn btn-outline-info"><a href="{%url 'updateform3'%}"> update your family details</a></button>
+                  <span><button type="button" class="btn btn-outline-info"><a href="{%url 'updatepreferences'%}"> update your preferences !</a></button>
+                  {% else %}
+                  
+                  <form method="post" action="{% url 'add_to_bookmarks' otheruser.id %}">
+                    {% csrf_token %}
+                    <!-- Your form fields here -->
+                
+                    <input type="hidden" name="button_action" value="{{otheruser.id}}">
+                    <button type="submit" class="btn btn-outline-info" name="bookmark">BookMark</button>
+                  </form>
+                  <span>
+                  <form method="post" action="{% url 'send_friend_request' otheruser.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="button_action" value="friend_request">
+                    <button type="submit" class="btn btn-outline-info" name="friend_request">send friend request</button>
+                  </form>
+                  </span>
+                
+                  {% endif %}
+                <!-- FORM HERE -->
+            </div>
+    
+    </div></div> {% endcomment %}
+    
+      <hr>
+      {% if otheruser.id == user.id %}
+      <button type="button" class="btn btn-outline-info"><a href="{%url 'updateform1'%}"> update your personal profile</a></button>
+      <span><button type="button" class="btn btn-outline-info"><a href="{%url 'updateform2'%}"> update your eduactional details</a></button>
+      <span><button type="button" class="btn btn-outline-info"><a href="{%url 'updateform3'%}"> update your family details</a></button>
+      <span><button type="button" class="btn btn-outline-info"><a href="{%url 'updatepreferences'%}"> update your preferences !</a></button>
+      {% else %}
+      
+      <form method="post" action="{% url 'add_to_bookmarks' otheruser.id %}">
+        {% csrf_token %}
+        <!-- Your form fields here -->
+    
+        <input type="hidden" name="button_action" value="{{otheruser.id}}">
+        <button type="submit" class="btn btn-outline-info" name="bookmark">BookMark</button>
+      </form>
+      <span>
+      <form method="post" action="{% url 'send_friend_request' otheruser.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="button_action" value="friend_request">
+        <button type="submit" class="btn btn-outline-info" name="friend_request">send friend request</button>
+      </form>
+      </span>
+    
+      {% endif %}
+    <!-- FORM HERE -->
+</div>
+
+  {% endblock %} 

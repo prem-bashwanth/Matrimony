@@ -1,0 +1,45 @@
+
+    {% extends "users/base.html" %}
+
+{%load static%}
+
+
+
+{% block content1 %}
+  <head>
+    <title>ABOUT-US</title>
+  </head>
+  <body>
+      <h1 class=indented-paragraph4 > Hello customer!! </h1>
+      <p class = hi>
+        This page tells about the web devolpers invlvolved in devolping this Django Project.
+        We  are BDV AMARNATH and K BASHWANTH from CSE Department BTECH part 2.
+      </p>
+      <div  class = photo-us  >
+        <img src="{% static 'bash2.jpg' %}"   alt="bash2.jpg">
+      </div>
+      <div class = photo-us  >
+        <img src="{% static 'bash.jpg' %}"   alt="bash.jpg">
+      </div>
+        {% comment %} <h2>Works we have done:</h2>
+       <p >
+         <h3 style="margin-left : 50px;">Bashwanth:</h3>
+         <h4 style="margin-left : 100px;"> Django app installation, sgettins.py work,Bootstraps,bookmarks marking and models some part</h4> <br>
+       </p>
+       <p >
+        <h3 style="margin-left : 50px;">Amarnath:</h3>
+        <h4 style="margin-left : 100px;"> templates and urls and css some part,request sending and accepting and the models some part </h4> <br>
+      </p> {% endcomment %}
+      <p>
+        <h5 style="margin-left : 300px;">Instagram handle</h5>
+        <h5 style="margin-left : 100px;">bashwanth: <i> prem_bashwanth</i></h5>
+        <h5 style="margin-left : 100px;">amar: <i> myself_amar</i></h5>
+        <h5 style="margin-left : 300px;">contact us</h5>
+        <h5 style="margin-left : 100px;">bashwanth: <i> 9381429059</i></h5>
+        <h5 style="margin-left : 100px;">amar: <i> 9490081867</i></h5>
+      <h5 style="margin-left : 200px;font-family :Copperplate Gothic Bold;">most of the work we have done we have did combinely most of time and divided work according to major contribution </h5>
+<h1 style="margin-left : 560px;font-size : 70px;font-family :Copperplate Gothic Bold; font-weight: Bold;">THANKYOU</h1>
+<h1 style="margin-left : 470px;font-size : 70px;font-family :Copperplate Gothic Bold; font-weight: Bold;">HAVE A NICE DAY</h1>
+
+  </body>
+{%endblock%}

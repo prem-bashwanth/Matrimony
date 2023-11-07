@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link{% if request.resolver_match.url_name == 'received_requests' %} active{% endif %}" href="{% url 'received_requests' %}">Received Requests</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if request.resolver_match.url_name == 'sent_requests' %} active{% endif %}" href="{% url 'sent_requests' %}">Sent Requests</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if request.resolver_match.url_name == 'accepted_requests' %} active{% endif %}" href="{% url 'accepted_requests' %}">Accepted Requests</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% block friend_requests_content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

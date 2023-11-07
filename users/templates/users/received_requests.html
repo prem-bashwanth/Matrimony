@@ -1,0 +1,37 @@
+{% extends "users/friend_requests.html" %}
+
+{% block friend_requests_content %}
+<div class="container">
+    <h1>Received Friend Requests</h1>
+    <ul class="list-group">
+        {% for request in received_requests %}
+        <a href="{%url 'profile' request.from_user.id %}">
+        <img class="rounded-circle account-img" src="{{ request.from_user.profile_personal_info.image_pic.url}}"> 
+        <div class="media-body">
+              
+          
+          <h2 class="account-heading">{{request.from_user.profile_personal_info.firstname}} {{request.from_user.profile_personal_info.lastname}}</h2>
+          
+          <p class="text-secondary">from {{request.from_user.profile_personal_info.city}},{{request.from_user.profile_personal_info.state}} </p>
+          <p class="text-secondary">{{request.from_user.profile_personal_info.profile_educational_and_career_info.occupation}}</p>
+          <p class="text-secondary">caste:{{request.from_user.profile_personal_info.profile_family_details.caste}}</p>
+        </div>
+        <hr>
+        <form method="post" action="{% url 'accept_friend_request' request.id %}">
+            {% csrf_token %}
+            <!-- Your form fields here -->
+            
+            <input type="hidden" name="button_action" value="{{request.id}}">
+            <button type="submit" class="btn btn-outline-info" name="accept">accept</button>
+          </form>
+        <form method="post" action="{% url 'decline_friend_request' request.id %}">
+            {% csrf_token %}
+            <!-- Your form fields here -->
+        
+            <input type="hidden" name="button_action" value="{{request.id}}">
+            <button type="submit" class="btn btn-outline-info" name="decline"> decline </button>
+        </form></a>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
