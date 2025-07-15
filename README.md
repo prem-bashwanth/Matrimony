@@ -1,2 +1,2 @@
 # Unveil Weddings Matrimony Website
-- Credits : Amar and Bashwanth
+- Credits : Bashwanth and Amar.
